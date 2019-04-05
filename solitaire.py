@@ -1,23 +1,5 @@
 from random import random
 
-'''
-General notes:
-- "Faceup" in the context of Deck lists refers to the last item in the list
-  (this is where we draw from and add cards to)
-
-Things to consider implementing:
-- Override comparison operators for Card objects, allowing them to use lt/gt
-  operators for quick comparison (opposed to looking up rank indexes every time
-  we want to make a simple comparison)
-'''
-
-# TODO implement deck cycle counter (for more advanced game mode restrictions)
-# TODO implement draw-3 capability (for more advanced game mode restrictions)
-# TODO add seed-based generation so that games may be replayed
-# TODO merge foundation into one reference ('E'), making move commands simpler
-# TODO possibly convert commands to QWERTASDF, representing DF5671234
-#      respectively (minimizing hand movements on keyboard)
-
 
 class Card:
 
@@ -234,8 +216,6 @@ class Solitaire:
         elif command[0] == 'R':
             self.reveal()
         elif command[0] == 'S':
-            # TODO the 'm' and 's' commands should share behavior, i.e. one
-            #      should fall into the other
             if len(command) >= 3:
                 from_deck = self.get_deck(command[1])
                 to_deck = self.get_deck(command[2])
